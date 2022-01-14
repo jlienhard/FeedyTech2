@@ -18,26 +18,16 @@
 
         {% endblock %}
 
-    
+      
     </head>
     <body>
-        <div class="right-aside">
-			{% include "_menu.html.twig" %}
-        </div>
-
-        <aside class="bg-dark">
-			{% include "_menu_left.html.twig" %}
-		</aside>
         {% block body %}
         
 
 
 
 
-
-
-
-            {% block javascripts %}
+          {% block javascripts %}
             {# {{ encore_entry_script_tags('app') }} #}
 
             {# Bundle Bootstrap #}
