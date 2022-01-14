@@ -1,5 +1,5 @@
 body {
-    background-color: red;
+    background-color: whitesmoke;
 }
 
 .bd-placeholder-img {
@@ -30,4 +30,19 @@ aside {
 
 .right-aside {
     margin-left: 200px;
+}
+
+
+/* Footer */
+
+footer {
+    position: relative;
+    margin-top: -150px;
+    /* negative value of footer height */
+    height: 150px;
+    clear: both;
+    padding-top: 20px;
+    background-color: #182030;
+    color: #eee;
+    display: none;
 }
