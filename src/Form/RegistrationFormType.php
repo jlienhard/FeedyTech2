@@ -6,6 +6,7 @@ use App\Entity\Membre;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -22,7 +23,7 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Veuillez accepter les C.G.U.',
                     ]),
                 ],
             ])
@@ -43,7 +44,18 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-        ;
+            ->add("username", TextType::class, [
+                "label"         => "Username",
+                "required" => true,
+                "constraints"   => [
+                    new Length([
+                        "min" => 2,
+                        "minMessage" => "Le pseudo doit comporter au minimum {{ limit }} lettres.",
+                        "max"  => 30,
+                        "maxMessage" => "Le pseudo peut comporter au maximum {{ limit }} lettres."
+                    ])
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

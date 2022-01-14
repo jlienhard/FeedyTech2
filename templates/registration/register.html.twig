@@ -1,17 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <h1>Inscription</h1>
 
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}
+        
+            <div class="col-12 d-flex flex-column ">
+                
+                <label for="">Pseudo</label>
+                {{ form_errors( registrationForm.username)}}
+                {{ form_widget(registrationForm.username, {
+                    attr: { placeholder: "Pseudo" }
+                } )}}
+           </div>
         {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
+            label: 'Mot de passe'
         }) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn">Inscription</button>
     {{ form_end(registrationForm) }}
 {% endblock %}
