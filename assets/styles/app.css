@@ -1,3 +1,48 @@
 body {
-    background-color: lightgray;
+    background-color: whitesmoke;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+
+/* Menu left */
+
+aside {
+    position: fixed;
+    width: 200px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.right-aside {
+    margin-left: 200px;
+}
+
+
+/* Footer */
+
+footer {
+    position: relative;
+    margin-top: -150px;
+    /* negative value of footer height */
+    height: 150px;
+    clear: both;
+    padding-top: 20px;
+    background-color: #182030;
+    color: #eee;
+    display: none;
 }
