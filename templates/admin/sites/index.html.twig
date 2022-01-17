@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sites index{% endblock %}
+
+{% block body %}
+    <h1>Sites index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Source_url</th>
+                <th>Rss_url</th>
+                <th>Icon_url</th>
+                <th>Creates_at</th>
+                <th>Update_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for site in sites %}
+            <tr>
+                <td>{{ site.id }}</td>
+                <td>{{ site.name }}</td>
+                <td>{{ site.description }}</td>
+                <td>{{ site.sourceUrl }}</td>
+                <td>{{ site.rssUrl }}</td>
+                <td>{{ site.iconUrl }}</td>
+                <td>{{ site.createsAt ? site.createsAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ site.updateAt ? site.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('admin_sites_show', {'id': site.id}) }}">show</a>
+                    <a href="{{ path('admin_sites_edit', {'id': site.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_sites_new') }}">Create new</a>
+{% endblock %}
